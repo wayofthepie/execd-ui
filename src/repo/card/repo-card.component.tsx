@@ -64,7 +64,7 @@ const renderBranches = (
           avatar={avatarIcon}
           label={
             <Typography color="textPrimary">
-              master
+              {stats.name}
               {progressBar}
             </Typography>
           }
