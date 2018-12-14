@@ -19,7 +19,7 @@ export const RepoGrid = withStyles(styles)((props: Props) =>
 )
 
 const renderRepositories = (repositories: Repository[], classes: Record<"gridContainer", string>) =>
-  <Grid direction="row" container={true} spacing={8} className={classes.gridContainer} >
+  <Grid direction="row" container={true} spacing={8} className={classes.gridContainer}>
     {repositories.map((repo, index) =>
       <Grid key={`${repo.name}-${index}`} item={true} xs={12} sm={12} md={6} lg={4} >
         <RepoCard branchStats={repo.branches} repoName={repo.name} />

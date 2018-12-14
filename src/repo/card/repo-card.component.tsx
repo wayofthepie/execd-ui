@@ -9,6 +9,7 @@ import { BranchDetails, Status } from './../model';
 const styles = (theme: Theme) => createStyles({
   cardAction: { marginTop: "-8px" },
   divider: { marginTop: "2px", marginBottom: "15px" },
+  errorIcon: { color: red[400] },
   root: { marginTop: "" },
 });
 
@@ -44,19 +45,19 @@ export const RepoCard = withStyles(styles)(({ repoName, branchStats, classes }: 
   </Card>
 });
 
-const errorIcon = <ErrorIcon style={{ color: red[400] }} />
+const errorIcon = (classes: Record<"errorIcon", string>) => <ErrorIcon className={classes.errorIcon} />
 const inProgressIcon = <LinearProgress />
 
 const renderBranches = (
   repoName: string,
   branchStats: BranchDetails[],
-  classes: Record<"divider", string>
+  classes: Record<"divider" | "errorIcon", string>
 ) => <React.Fragment>
     <Divider className={classes.divider} />
     {branchStats
       .filter(stats => stats.status !== Status.Succeeded)
       .map(stats => {
-        const avatarIcon = stats.status === Status.Failed ? errorIcon : undefined;
+        const avatarIcon = stats.status === Status.Failed ? errorIcon(classes) : undefined;
         const progressBar = stats.status === Status.InProgress ? inProgressIcon : null;
         return <Chip
           key={`${repoName}-${stats.name}`}

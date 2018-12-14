@@ -9,7 +9,7 @@ export interface BranchDetails {
 }
 
 export enum Status {
-  Succeeded,
-  InProgress,
-  Failed
+  Succeeded = "succeeded",
+  InProgress = "in-progress",
+  Failed = "failed"
 }

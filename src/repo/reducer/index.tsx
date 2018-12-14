@@ -16,7 +16,7 @@ export const fetchRepositories = (state: State, action: RepoAction): State => {
     case getType(repo.fetchReposFailure):
       return { ...state, error: action.payload }
     case getType(repo.fetchReposSuccess):
-      return { ...state, repositories: action.payload, error: undefined }
+      return { ...state, ...action.payload, error: undefined }
     default:
       return { repositories: [], error: undefined }
   }
