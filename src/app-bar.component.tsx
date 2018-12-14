@@ -61,7 +61,7 @@ const CustomAppBar = withStyles(styles)(
         <div>
           <AppBar style={{ margin: 0 }} >
             <Toolbar>
-              <Grid container={true} xs={12}>
+              <Grid container={true}>
                 <Grid item={true} xs={4}>
                   <Typography variant="h6" color="inherit">
                     Execd

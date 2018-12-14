@@ -62,11 +62,12 @@ const renderBranches = (
           key={`${repoName}-${stats.name}`}
           variant="outlined"
           avatar={avatarIcon}
-          label={
+          label={<div>
             <Typography color="textPrimary">
               {stats.name}
-              {progressBar}
             </Typography>
+            {progressBar}
+          </div>
           }
           clickable={true}
         />

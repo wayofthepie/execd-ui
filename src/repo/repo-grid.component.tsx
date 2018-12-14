@@ -14,7 +14,7 @@ interface Props extends WithStyles<typeof styles> {
 
 export const RepoGrid = withStyles(styles)((props: Props) =>
   isUndefined(props.repositories) || props.repositories.length === 0
-    ? <div>Empty</div>
+    ? <div className={props.classes.gridContainer}>Empty</div>
     : renderRepositories(props.repositories, props.classes)
 )
 
